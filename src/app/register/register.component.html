@@ -23,8 +23,9 @@
           minlength="3"
           maxlength="20"
           #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
         />
-        <div class="alert-danger" *ngIf="username.errors && f.submitted">
+        <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="username.errors['required']">Username is required</div>
           <div *ngIf="username.errors['minlength']">
             Username must be at least 3 characters
@@ -44,8 +45,9 @@
           required
           email
           #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
         />
-        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+        <div *ngIf="email.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="email.errors['required']">Email is required</div>
           <div *ngIf="email.errors['email']">
             Email must be a valid email address
@@ -62,8 +64,9 @@
           required
           minlength="6"
           #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
         />
-        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="password.errors['required']">Password is required</div>
           <div *ngIf="password.errors['minlength']">
             Password must be at least 6 characters

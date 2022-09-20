@@ -21,12 +21,12 @@
           [(ngModel)]="form.username"
           required
           #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
         />
         <div
           class="alert alert-danger"
           role="alert"
-          *ngIf="username.errors && f.submitted"
-        >
+          *ngIf="username.errors && f.submitted" class="invalid-feedback">
           Username is required!
         </div>
       </div>
@@ -40,12 +40,12 @@
           required
           minlength="6"
           #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
         />
         <div
           class="alert alert-danger"
           role="alert"
-          *ngIf="password.errors && f.submitted"
-        >
+          *ngIf="password.errors && f.submitted" class="invalid-feedback">
           <div *ngIf="password.errors['required']">Password is required</div>
           <div *ngIf="password.errors['minlength']">
             Password must be at least 6 characters
